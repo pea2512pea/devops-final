@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Service Desk</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">SUPPORT WORKSPACE</p>
+          <h1>Service Desk</h1>
+          <p class="subtitle">Track issues and keep work moving.</p>
+        </div>
+      </header>
+
+      <section class="panel create-panel" aria-labelledby="create-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">NEW REQUEST</p>
+            <h2 id="create-heading">Create a ticket</h2>
+          </div>
+        </div>
+        <form id="ticket-form">
+          <div class="form-fields">
+            <label class="title-field" for="title">
+              Ticket title
+              <input
+                id="title"
+                name="title"
+                type="text"
+                maxlength="80"
+                placeholder="e.g. Printer offline"
+                required
+              />
+            </label>
+            <label for="priority">
+              Priority
+              <select id="priority" name="priority" required>
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+            <button class="primary-button" type="submit">Create ticket</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="tickets-section" aria-labelledby="tickets-heading">
+        <div class="list-heading">
+          <div>
+            <p class="eyebrow">WORK QUEUE</p>
+            <h2 id="tickets-heading">Tickets <span id="ticket-count">0</span></h2>
+          </div>
+          <label class="filter-control" for="status-filter">
+            Filter
+            <select id="status-filter">
+              <option value="all">All tickets</option>
+              <option value="open">Open</option>
+              <option value="doing">Doing</option>
+              <option value="done">Done</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+        <div id="ticket-list" class="ticket-list" aria-live="polite"></div>
+      </section>
+    </main>
+  </body>
+</html>
